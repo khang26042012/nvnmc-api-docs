@@ -1,0 +1,42 @@
+---
+title: "Server Databases"
+description: "Các endpoint quản trị cơ sở dữ liệu quan hệ gán cho máy chủ."
+---
+
+## Danh sách cơ sở dữ liệu
+
+```http
+GET https://panel.nvnmc.cloud/api/client/servers/{server_id}/databases
+```
+
+---
+
+## Khởi tạo cơ sở dữ liệu mới
+
+```http
+POST https://panel.nvnmc.cloud/api/client/servers/{server_id}/databases
+Content-Type: application/json
+
+{
+  "database": "s1_main_data",
+  "remote": "%"
+}
+```
+
+---
+
+## Xoay đổi mật khẩu truy cập (Rotate Password)
+
+```http
+POST https://panel.nvnmc.cloud/api/client/servers/{server_id}/databases/{database_id}/rotate-password
+```
+
+---
+
+## Xóa cơ sở dữ liệu
+
+```http
+DELETE https://panel.nvnmc.cloud/api/client/servers/{server_id}/databases/{database_id}
+```
+
+* **Phản hồi:** `204 No Content`.

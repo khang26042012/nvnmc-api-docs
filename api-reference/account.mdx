@@ -1,0 +1,78 @@
+---
+title: "Account"
+description: "Các endpoint truy xuất thông tin tài khoản, nhật ký hoạt động và quản lý khóa API."
+---
+
+## Lấy thông tin tài khoản
+
+```http
+GET https://panel.nvnmc.cloud/api/client/account
+```
+
+### Phản hồi: 200 OK
+```json
+{
+  "object": "user",
+  "attributes": {
+    "id": 128,
+    "admin": false,
+    "username": "phantrongkhang",
+    "email": "trongkhabgphan@gmail.com",
+    "first_name": "Phan Trọng",
+    "last_name": "Khang",
+    "language": "vi",
+    "2fa": false
+  }
+}
+```
+
+---
+
+## Lấy nhật ký hoạt động
+
+```http
+GET https://panel.nvnmc.cloud/api/client/account/activity
+```
+
+### Phản hồi: 200 OK
+```json
+{
+  "object": "list",
+  "data": [
+    {
+      "object": "activity_log",
+      "attributes": {
+        "event": "auth:login",
+        "ip": "116.110.43.159",
+        "description": "User logged into account.",
+        "timestamp": "2026-09-28T11:31:52+07:00"
+      }
+    }
+  ]
+}
+```
+
+---
+
+## Quản lý API Keys
+
+### Danh sách khóa API
+```http
+GET https://panel.nvnmc.cloud/api/client/account/api-keys
+```
+
+### Tạo khóa API mới
+```http
+POST https://panel.nvnmc.cloud/api/client/account/api-keys
+Content-Type: application/json
+
+{
+  "description": "Automation Worker",
+  "allowed_ips": []
+}
+```
+
+### Xóa khóa API
+```http
+DELETE https://panel.nvnmc.cloud/api/client/account/api-keys/{identifier}
+```

@@ -1,0 +1,59 @@
+---
+title: "Server Startup"
+description: "Các endpoint truy xuất và cập nhật biến môi trường khởi động tiến trình container."
+---
+
+## Danh sách biến môi trường khởi động
+
+```http
+GET https://panel.nvnmc.cloud/api/client/servers/{server_id}/startup
+```
+
+### Phản hồi: 200 OK
+```json
+{
+  "object": "list",
+  "data": [
+    {
+      "object": "egg_variable",
+      "attributes": {
+        "name": "Minecraft Version",
+        "description": "Phiên bản lõi cần tải về khi cài đặt.",
+        "env_variable": "MINECRAFT_VERSION",
+        "default_value": "latest",
+        "server_value": "1.21.4",
+        "is_editable": true,
+        "rules": "required|string|max:20"
+      }
+    },
+    {
+      "object": "egg_variable",
+      "attributes": {
+        "name": "Server Jar File",
+        "description": "Tên tệp tin JAR dùng làm điểm vào khởi động.",
+        "env_variable": "SERVER_JARFILE",
+        "default_value": "server.jar",
+        "server_value": "paper-1.21.4.jar",
+        "is_editable": true,
+        "rules": "required|string|max:40"
+      }
+    }
+  ]
+}
+```
+
+---
+
+## Cập nhật giá trị biến môi trường
+
+```http
+PUT https://panel.nvnmc.cloud/api/client/servers/{server_id}/startup/variable
+Content-Type: application/json
+
+{
+  "key": "SERVER_JARFILE",
+  "value": "paper-1.21.4.jar"
+}
+```
+
+* **Phản hồi:** `200 OK` trả về đối tượng biến môi trường đã được cập nhật.

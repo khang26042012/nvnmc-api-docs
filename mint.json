@@ -1,0 +1,71 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "NVNMC API Reference",
+  "colors": {
+    "primary": "#27272A",
+    "light": "#F4F4F5",
+    "dark": "#09090B",
+    "background": {
+      "dark": "#09090B",
+      "light": "#FFFFFF"
+    }
+  },
+  "navigation": [
+    {
+      "group": "Tổng Quan",
+      "pages": [
+        "introduction",
+        "authentication"
+      ]
+    },
+    {
+      "group": "Account",
+      "pages": [
+        "api-reference/account"
+      ]
+    },
+    {
+      "group": "Servers",
+      "pages": [
+        "api-reference/servers",
+        "api-reference/resources"
+      ]
+    },
+    {
+      "group": "Power & Console",
+      "pages": [
+        "api-reference/power",
+        "api-reference/command",
+        "api-reference/websocket"
+      ]
+    },
+    {
+      "group": "File Management",
+      "pages": [
+        "api-reference/files"
+      ]
+    },
+    {
+      "group": "Backups",
+      "pages": [
+        "api-reference/backups"
+      ]
+    },
+    {
+      "group": "Network & Allocations",
+      "pages": [
+        "api-reference/network"
+      ]
+    },
+    {
+      "group": "Configuration & Automation",
+      "pages": [
+        "api-reference/startup",
+        "api-reference/settings",
+        "api-reference/users",
+        "api-reference/databases",
+        "api-reference/schedules"
+      ]
+    }
+  ]
+}

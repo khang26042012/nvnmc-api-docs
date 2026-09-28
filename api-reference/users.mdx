@@ -1,0 +1,62 @@
+---
+title: "Server Subusers"
+description: "Các endpoint phân quyền thành viên phụ quản trị máy chủ."
+---
+
+## Danh sách thành viên phụ
+
+```http
+GET https://panel.nvnmc.cloud/api/client/servers/{server_id}/users
+```
+
+### Phản hồi: 200 OK
+```json
+{
+  "object": "list",
+  "data": [
+    {
+      "object": "server_subuser",
+      "attributes": {
+        "uuid": "7c12f458-124b-4c0a-9d8a-bc91a45e7f12",
+        "username": "technician",
+        "email": "tech@example.com",
+        "permissions": [
+          "control.console",
+          "control.start",
+          "control.restart",
+          "file.read",
+          "file.read-content"
+        ]
+      }
+    }
+  ]
+}
+```
+
+---
+
+## Thêm thành viên phụ mới
+
+```http
+POST https://panel.nvnmc.cloud/api/client/servers/{server_id}/users
+Content-Type: application/json
+
+{
+  "email": "tech@example.com",
+  "permissions": [
+    "control.console",
+    "control.start",
+    "control.restart"
+  ]
+}
+```
+
+---
+
+## Xóa quyền thành viên phụ
+
+```http
+DELETE https://panel.nvnmc.cloud/api/client/servers/{server_id}/users/{user_uuid}
+```
+
+* **Phản hồi:** `204 No Content`.

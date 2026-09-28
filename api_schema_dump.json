@@ -1,0 +1,1110 @@
+{
+  "/account": {
+    "status": 200,
+    "data": {
+      "object": "user",
+      "attributes": {
+        "id": 4825,
+        "admin": false,
+        "username": "tkccphone8_3582",
+        "email": "tkccphone8@gmail.com",
+        "first_name": "Min",
+        "last_name": "anhh",
+        "language": "en"
+      }
+    }
+  },
+  "/account/activity": {
+    "status": 200,
+    "data": {
+      "object": "list",
+      "data": [
+        {
+          "object": "activity_log",
+          "attributes": {
+            "id": "2d1521d2f1a82e256cfe87d27fed9862ac862e56",
+            "batch": null,
+            "event": "auth:fail",
+            "is_api": false,
+            "ip": null,
+            "description": null,
+            "properties": {
+              "ip": "[hidden]",
+              "useragent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+              "email": "tkccphone8@gmail.com"
+            },
+            "has_additional_metadata": true,
+            "timestamp": "2026-09-27T23:09:03+07:00"
+          }
+        },
+        {
+          "object": "activity_log",
+          "attributes": {
+            "id": "87c6efb7c8e7224dd8a30d2f8789fb345d29b14c",
+            "batch": null,
+            "event": "auth:fail",
+            "is_api": false,
+            "ip": null,
+            "description": null,
+            "properties": {
+              "ip": "[hidden]",
+              "useragent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+              "username": "tkccphone8_3582"
+            },
+            "has_additional_metadata": true,
+            "timestamp": "2026-09-27T23:09:12+07:00"
+          }
+        },
+        {
+          "object": "activity_log",
+          "attributes": {
+            "id": "09d5d19593f799d5d7cfcb32fca35422c5d7c2be",
+            "batch": null,
+            "event": "auth:fail",
+            "is_api": false,
+            "ip": null,
+            "description": null,
+            "properties": {
+              "ip": "[hidden]",
+              "useragent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Mobile Safari/537.36",
+              "username": "tkccphone8_3582"
+            },
+            "has_additional_metadata": true,
+            "timestamp": "2026-09-27T23:10:45+07:00"
+          }
+        },
+        {
+          "object": "activity_log",
+          "attributes": {
+            "id": "156cbb7d9200e8d79f92b6d72ebc4fce3845cd41",
+            "batch": null,
+            "event": "auth:fail",
+            "is_api": false,
+            "ip": null,
+            "description": null,
+            "properties": {
+              "ip": "[hidden]",
+              "useragent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36 EdgA/153.0.0.0",
+              "username": "tkccphone8_3582"
+            },
+            "has_additional_metadata": true,
+            "timestamp": "2026-09-27T23:12:57+07:00"
+          }
+        },
+        {
+          "object": "activity_log",
+          "attributes": {
+            "id": "14028f117fb2eca88f227590ea8509518fb582b4",
+            "batch": null,
+            "event": "auth:fail",
+            "is_api": false,
+            "ip": null,
+            "description": null,
+            "properties": {
+              "ip": "[hidden]",
+              "useragent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36 EdgA/153.0.0.0",
+              "username": "tkccphone8_3582"
+            },
+            "has_additional_metadata": true,
+            "timestamp": "2026-09-27T23:13:14+07:00"
+          }
+        },
+        {
+          "object": "activity_log",
+          "attributes": {
+            "id": "b44a5df56bcf5ba9ecf21ff1cf4cac4161b70471",
+            "batch": null,
+            "event": "auth:reset-password",
+            "is_api": false,
+            "ip": null,
+            "description": "sending password reset email",
+            "properties": {
+              "ip": "[hidden]",
+              "useragent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36 EdgA/153.0.0.0"
+            },
+            "has_additional_metadata": false,
+            "timestamp": "2026-09-27T23:13:30+07:00"
+          }
+        },
+        {
+          "object": "activity_log",
+          "attributes": {
+            "id": "e192278766045e731c31009d14d1062fb961cc86",
+            "batch": null,
+            "event": "event:password-reset",
+            "is_api": false,
+            "ip": null,
+            "description": null,
+            "properties": {
+              "ip": "[hidden]",
+              "useragent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36 EdgA/153.0.0.0"
+            },
+            "has_additional_metadata": false,
+            "timestamp": "2026-09-27T23:14:58+07:00"
+          }
+        },
+        {
+          "object": "activity_log",
+          "attributes": {
+            "id": "2abbd1eac17098fcfb0665c5cdde4ee2284c0cd2",
+            "batch": null,
+            "event": "user:api-key.create",
+            "is_api": false,
+            "ip": "116.110.43.159",
+            "description": null,
+            "properties": {
+              "identifier": "ptlc_IBwwXxB1sDP"
+            },
+            "has_additional_metadata": false,
+            "timestamp": "2026-09-27T23:15:43+07:00"
+          }
+        }
+      ],
+      "meta": {
+        "pagination": {
+          "total": 8,
+          "count": 8,
+          "per_page": 25,
+          "current_page": 1,
+          "total_pages": 1,
+          "links": {}
+        }
+      }
+    }
+  },
+  "/permissions": {
+    "status": 200,
+    "data": {
+      "object": "system_permissions",
+      "attributes": {
+        "permissions": {
+          "versions": {
+            "description": "Permissions that control a user's ability to change server versions.",
+            "keys": {
+              "manage": "Allows a user to change the server version."
+            }
+          },
+          "websocket": {
+            "description": "Allows the user to connect to the server websocket, giving them access to view console output and realtime server stats.",
+            "keys": {
+              "connect": "Allows a user to connect to the websocket instance for a server to stream the console."
+            }
+          },
+          "control": {
+            "description": "Permissions that control a user's ability to control the power state of a server, or send commands.",
+            "keys": {
+              "console": "Allows a user to send commands to the server instance via the console.",
+              "start": "Allows a user to start the server if it is stopped.",
+              "stop": "Allows a user to stop a server if it is running.",
+              "restart": "Allows a user to perform a server restart. This allows them to start the server if it is offline, but not put the server in a completely stopped state."
+            }
+          },
+          "user": {
+            "description": "Permissions that allow a user to manage other subusers on a server. They will never be able to edit their own account, or assign permissions they do not have themselves.",
+            "keys": {
+              "create": "Allows a user to create new subusers for the server.",
+              "read": "Allows the user to view subusers and their permissions for the server.",
+              "update": "Allows a user to modify other subusers.",
+              "delete": "Allows a user to delete a subuser from the server."
+            }
+          },
+          "file": {
+            "description": "Permissions that control a user's ability to modify the filesystem for this server.",
+            "keys": {
+              "create": "Allows a user to create additional files and folders via the Panel or direct upload.",
+              "read": "Allows a user to view the contents of a directory, but not view the contents of or download files.",
+              "read-content": "Allows a user to view the contents of a given file. This will also allow the user to download files.",
+              "update": "Allows a user to update the contents of an existing file or directory.",
+              "delete": "Allows a user to delete files or directories.",
+              "archive": "Allows a user to archive the contents of a directory as well as decompress existing archives on the system.",
+              "sftp": "Allows a user to connect to SFTP and manage server files using the other assigned file permissions."
+            }
+          },
+          "backup": {
+            "description": "Permissions that control a user's ability to generate and manage server backups.",
+            "keys": {
+              "create": "Allows a user to create new backups for this server.",
+              "read": "Allows a user to view all backups that exist for this server.",
+              "delete": "Allows a user to remove backups from the system.",
+              "download": "Allows a user to download a backup for the server. Danger: this allows a user to access all files for the server in the backup.",
+              "restore": "Allows a user to restore a backup for the server. Danger: this allows the user to delete all of the server files in the process."
+            }
+          },
+          "allocation": {
+            "description": "Permissions that control a user's ability to modify the port allocations for this server.",
+            "keys": {
+              "read": "Allows a user to view all allocations currently assigned to this server. Users with any level of access to this server can always view the primary allocation.",
+              "create": "Allows a user to assign additional allocations to the server.",
+              "update": "Allows a user to change the primary server allocation and attach notes to each allocation.",
+              "delete": "Allows a user to delete an allocation from the server."
+            }
+          },
+          "startup": {
+            "description": "Permissions that control a user's ability to view this server's startup parameters.",
+            "keys": {
+              "read": "Allows a user to view the startup variables for a server.",
+              "update": "Allows a user to modify the startup variables for the server.",
+              "docker-image": "Allows a user to modify the Docker image used when running the server."
+            }
+          },
+          "database": {
+            "description": "Permissions that control a user's access to the database management for this server.",
+            "keys": {
+              "create": "Allows a user to create a new database for this server.",
+              "read": "Allows a user to view the database associated with this server.",
+              "update": "Allows a user to rotate the password on a database instance. If the user does not have the view_password permission they will not see the updated password.",
+              "delete": "Allows a user to remove a database instance from this server.",
+              "view_password": "Allows a user to view the password associated with a database instance for this server."
+            }
+          },
+          "schedule": {
+            "description": "Permissions that control a user's access to the schedule management for this server.",
+            "keys": {
+              "create": "Allows a user to create new schedules for this server.",
+              "read": "Allows a user to view schedules and the tasks associated with them for this server.",
+              "update": "Allows a user to update schedules and schedule tasks for this server.",
+              "delete": "Allows a user to delete schedules for this server."
+            }
+          },
+          "settings": {
+            "description": "Permissions that control a user's access to the settings for this server.",
+            "keys": {
+              "rename": "Allows a user to rename this server and change the description of it.",
+              "reinstall": "Allows a user to trigger a reinstall of this server."
+            }
+          },
+          "activity": {
+            "description": "Permissions that control a user's access to the server activity logs.",
+            "keys": {
+              "read": "Allows a user to view the activity logs for the server."
+            }
+          }
+        }
+      }
+    }
+  },
+  "": {
+    "status": 200,
+    "data": {
+      "object": "list",
+      "data": [
+        {
+          "object": "server",
+          "attributes": {
+            "server_owner": true,
+            "identifier": "abd90cdd",
+            "internal_id": 5604,
+            "uuid": "abd90cdd-b658-437c-a00c-7a89f09f7e10",
+            "name": "KhangSMP2",
+            "node": "nodelocal",
+            "is_node_under_maintenance": false,
+            "sftp_details": {
+              "ip": "sftp.nvnmc.asia",
+              "port": 2022
+            },
+            "description": "Server phụ tạm thời",
+            "limits": {
+              "memory": 7168,
+              "swap": 0,
+              "disk": 35840,
+              "io": 500,
+              "cpu": 450,
+              "threads": null,
+              "oom_disabled": true
+            },
+            "invocation": "java -Xms128M -XX:MaxRAM=7168M -XX:MaxRAMPercentage=80.0 -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -Duser.timezone=Asia/Ho_Chi_Minh -Dterminal.jline=false -Dterminal.ansi=true -jar server.jar nogui",
+            "docker_image": "ghcr.io/pterodactyl/yolks:java_25",
+            "egg_features": [
+              "eula",
+              "java_version",
+              "pid_limit"
+            ],
+            "feature_limits": {
+              "databases": 1,
+              "allocations": 2,
+              "backups": 1
+            },
+            "status": null,
+            "is_suspended": false,
+            "is_installing": false,
+            "is_transferring": false,
+            "BlueprintFramework": {
+              "egg_id": 3
+            },
+            "relationships": {
+              "allocations": {
+                "object": "list",
+                "data": [
+                  {
+                    "object": "allocation",
+                    "attributes": {
+                      "id": 2668,
+                      "ip": "0.0.0.0",
+                      "ip_alias": "nvnmc.asia",
+                      "port": 25035,
+                      "notes": null,
+                      "is_default": true
+                    }
+                  }
+                ]
+              },
+              "variables": {
+                "object": "list",
+                "data": [
+                  {
+                    "object": "egg_variable",
+                    "attributes": {
+                      "name": "Minecraft Version",
+                      "description": "The version of minecraft to download.\r\n\r\nPinned to Paper 26.1.2 for the current Minecraft release. Set to latest if you want reinstalls to fetch the newest supported Paper version automatically.",
+                      "env_variable": "MINECRAFT_VERSION",
+                      "default_value": "26.1.2",
+                      "server_value": "26.2",
+                      "is_editable": true,
+                      "rules": "nullable|string|max:20"
+                    }
+                  },
+                  {
+                    "object": "egg_variable",
+                    "attributes": {
+                      "name": "Server Jar File",
+                      "description": "Ten file jar khoi chay may chu. Bat buoc ket thuc bang .jar va khong chua ky tu dac biet.",
+                      "env_variable": "SERVER_JARFILE",
+                      "default_value": "server.jar",
+                      "server_value": "server.jar",
+                      "is_editable": true,
+                      "rules": "required|string|max:128|regex:/^[a-zA-Z0-9][a-zA-Z0-9._-]*\\.jar$/"
+                    }
+                  },
+                  {
+                    "object": "egg_variable",
+                    "attributes": {
+                      "name": "Build Number",
+                      "description": "The build number for the paper release.\r\n\r\nLeave at latest to always get the latest stable build for the selected Paper version. Invalid versions will default to latest.",
+                      "env_variable": "BUILD_NUMBER",
+                      "default_value": "latest",
+                      "server_value": "latest",
+                      "is_editable": true,
+                      "rules": "required|string|max:20"
+                    }
+                  },
+                  {
+                    "object": "egg_variable",
+                    "attributes": {
+                      "name": "Online Mode",
+                      "description": "Controls whether the server verifies Minecraft accounts with Mojang/Microsoft. Use true for premium-only servers and false for offline/cracked servers.",
+                      "env_variable": "ONLINE_MODE",
+                      "default_value": "false",
+                      "server_value": "false",
+                      "is_editable": true,
+                      "rules": "required|string|in:true,false"
+                    }
+                  },
+                  {
+                    "object": "egg_variable",
+                    "attributes": {
+                      "name": "Max Players",
+                      "description": "The maximum number of players allowed to join the server.",
+                      "env_variable": "MAX_PLAYERS",
+                      "default_value": "20",
+                      "server_value": "50",
+                      "is_editable": true,
+                      "rules": "required|integer|min:1|max:100000"
+                    }
+                  },
+                  {
+                    "object": "egg_variable",
+                    "attributes": {
+                      "name": "JVM Garbage Collector Flags",
+                      "description": "[HUONG DAN CHON CO GC]:\n- Dong dai nhat chua MaxGCPauseMillis (Aikar): Tot nhat cho Paper, Purpur, Folia (Khuyen dung mac dinh).\n- -XX:+UseShenandoahGC: Tot nhat cho Fabric, Modpack nang va server PvP (Triet tieu giat lag khung hinh).\n- -XX:+UseZGC: Danh cho may chu RAM lon (Khuyen nghi >= 8GB, dong nguoi choi).\n- Chua UseStringDeduplication: Danh cho server mod giup tiet kiem 10-20% RAM Heap.\n- -XX:+UseG1GC tieu chuan: Mac dinh chuan cua Java, phu hop Vanilla / server nho.\n- De trong (Default): Khong them co, JVM tu dong dieu phoi.",
+                      "env_variable": "GC_FLAGS",
+                      "default_value": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true",
+                      "server_value": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true",
+                      "is_editable": true,
+                      "rules": "nullable|string|in:-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true,-XX:+UseShenandoahGC,-XX:+UseZGC,-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:+UseStringDeduplication,-XX:+UseG1GC -XX:+ParallelRefProcEnabled"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "meta": {
+        "pagination": {
+          "total": 1,
+          "count": 1,
+          "per_page": 50,
+          "current_page": 1,
+          "total_pages": 1,
+          "links": {}
+        }
+      }
+    }
+  },
+  "/servers/abd90cdd": {
+    "status": 200,
+    "data": {
+      "object": "server",
+      "attributes": {
+        "server_owner": true,
+        "identifier": "abd90cdd",
+        "internal_id": 5604,
+        "uuid": "abd90cdd-b658-437c-a00c-7a89f09f7e10",
+        "name": "KhangSMP2",
+        "node": "nodelocal",
+        "is_node_under_maintenance": false,
+        "sftp_details": {
+          "ip": "sftp.nvnmc.asia",
+          "port": 2022
+        },
+        "description": "Server phụ tạm thời",
+        "limits": {
+          "memory": 7168,
+          "swap": 0,
+          "disk": 35840,
+          "io": 500,
+          "cpu": 450,
+          "threads": null,
+          "oom_disabled": true
+        },
+        "invocation": "java -Xms128M -XX:MaxRAM=7168M -XX:MaxRAMPercentage=80.0 -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -Duser.timezone=Asia/Ho_Chi_Minh -Dterminal.jline=false -Dterminal.ansi=true -jar server.jar nogui",
+        "docker_image": "ghcr.io/pterodactyl/yolks:java_25",
+        "egg_features": [
+          "eula",
+          "java_version",
+          "pid_limit"
+        ],
+        "feature_limits": {
+          "databases": 1,
+          "allocations": 2,
+          "backups": 1
+        },
+        "status": null,
+        "is_suspended": false,
+        "is_installing": false,
+        "is_transferring": false,
+        "BlueprintFramework": {
+          "egg_id": 3
+        },
+        "relationships": {
+          "allocations": {
+            "object": "list",
+            "data": [
+              {
+                "object": "allocation",
+                "attributes": {
+                  "id": 2668,
+                  "ip": "0.0.0.0",
+                  "ip_alias": "nvnmc.asia",
+                  "port": 25035,
+                  "notes": null,
+                  "is_default": true
+                }
+              }
+            ]
+          },
+          "variables": {
+            "object": "list",
+            "data": [
+              {
+                "object": "egg_variable",
+                "attributes": {
+                  "name": "Minecraft Version",
+                  "description": "The version of minecraft to download.\r\n\r\nPinned to Paper 26.1.2 for the current Minecraft release. Set to latest if you want reinstalls to fetch the newest supported Paper version automatically.",
+                  "env_variable": "MINECRAFT_VERSION",
+                  "default_value": "26.1.2",
+                  "server_value": "26.2",
+                  "is_editable": true,
+                  "rules": "nullable|string|max:20"
+                }
+              },
+              {
+                "object": "egg_variable",
+                "attributes": {
+                  "name": "Server Jar File",
+                  "description": "Ten file jar khoi chay may chu. Bat buoc ket thuc bang .jar va khong chua ky tu dac biet.",
+                  "env_variable": "SERVER_JARFILE",
+                  "default_value": "server.jar",
+                  "server_value": "server.jar",
+                  "is_editable": true,
+                  "rules": "required|string|max:128|regex:/^[a-zA-Z0-9][a-zA-Z0-9._-]*\\.jar$/"
+                }
+              },
+              {
+                "object": "egg_variable",
+                "attributes": {
+                  "name": "Build Number",
+                  "description": "The build number for the paper release.\r\n\r\nLeave at latest to always get the latest stable build for the selected Paper version. Invalid versions will default to latest.",
+                  "env_variable": "BUILD_NUMBER",
+                  "default_value": "latest",
+                  "server_value": "latest",
+                  "is_editable": true,
+                  "rules": "required|string|max:20"
+                }
+              },
+              {
+                "object": "egg_variable",
+                "attributes": {
+                  "name": "Online Mode",
+                  "description": "Controls whether the server verifies Minecraft accounts with Mojang/Microsoft. Use true for premium-only servers and false for offline/cracked servers.",
+                  "env_variable": "ONLINE_MODE",
+                  "default_value": "false",
+                  "server_value": "false",
+                  "is_editable": true,
+                  "rules": "required|string|in:true,false"
+                }
+              },
+              {
+                "object": "egg_variable",
+                "attributes": {
+                  "name": "Max Players",
+                  "description": "The maximum number of players allowed to join the server.",
+                  "env_variable": "MAX_PLAYERS",
+                  "default_value": "20",
+                  "server_value": "50",
+                  "is_editable": true,
+                  "rules": "required|integer|min:1|max:100000"
+                }
+              },
+              {
+                "object": "egg_variable",
+                "attributes": {
+                  "name": "JVM Garbage Collector Flags",
+                  "description": "[HUONG DAN CHON CO GC]:\n- Dong dai nhat chua MaxGCPauseMillis (Aikar): Tot nhat cho Paper, Purpur, Folia (Khuyen dung mac dinh).\n- -XX:+UseShenandoahGC: Tot nhat cho Fabric, Modpack nang va server PvP (Triet tieu giat lag khung hinh).\n- -XX:+UseZGC: Danh cho may chu RAM lon (Khuyen nghi >= 8GB, dong nguoi choi).\n- Chua UseStringDeduplication: Danh cho server mod giup tiet kiem 10-20% RAM Heap.\n- -XX:+UseG1GC tieu chuan: Mac dinh chuan cua Java, phu hop Vanilla / server nho.\n- De trong (Default): Khong them co, JVM tu dong dieu phoi.",
+                  "env_variable": "GC_FLAGS",
+                  "default_value": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true",
+                  "server_value": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true",
+                  "is_editable": true,
+                  "rules": "nullable|string|in:-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true,-XX:+UseShenandoahGC,-XX:+UseZGC,-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:+UseStringDeduplication,-XX:+UseG1GC -XX:+ParallelRefProcEnabled"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "meta": {
+        "is_server_owner": true,
+        "user_permissions": [
+          "*",
+          "versions.manage",
+          "websocket.connect",
+          "control.console",
+          "control.start",
+          "control.stop",
+          "control.restart",
+          "user.create",
+          "user.read",
+          "user.update",
+          "user.delete",
+          "file.create",
+          "file.read",
+          "file.read-content",
+          "file.update",
+          "file.delete",
+          "file.archive",
+          "file.sftp",
+          "backup.create",
+          "backup.read",
+          "backup.delete",
+          "backup.download",
+          "backup.restore",
+          "allocation.read",
+          "allocation.create",
+          "allocation.update",
+          "allocation.delete",
+          "startup.read",
+          "startup.update",
+          "startup.docker-image",
+          "database.create",
+          "database.read",
+          "database.update",
+          "database.delete",
+          "database.view_password",
+          "schedule.create",
+          "schedule.read",
+          "schedule.update",
+          "schedule.delete",
+          "settings.rename",
+          "settings.reinstall",
+          "activity.read"
+        ]
+      }
+    }
+  },
+  "/servers/abd90cdd/resources": {
+    "status": 200,
+    "data": {
+      "object": "stats",
+      "attributes": {
+        "current_state": "running",
+        "is_suspended": false,
+        "resources": {
+          "memory_bytes": 3415363584,
+          "cpu_absolute": 5.815,
+          "disk_bytes": 4049492126,
+          "network_rx_bytes": 57492180,
+          "network_tx_bytes": 291595367,
+          "uptime": 46839803
+        }
+      }
+    }
+  },
+  "/servers/abd90cdd/websocket": {
+    "status": 200,
+    "data": {
+      "data": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6IjA0OThmOWMxZjU0ZTY2M2VlODRiOGNjMjNiZDY0MWNlIn0.eyJpc3MiOiJodHRwczovL3BhbmVsLm52bm1jLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vbm9kZTEubnZubWMuYXNpYTo0NDMiXSwianRpIjoiMDQ5OGY5YzFmNTRlNjYzZWU4NGI4Y2MyM2JkNjQxY2UiLCJpYXQiOjE3OTA1NzgyMTIsIm5iZiI6MTc5MDU3NzkxMiwiZXhwIjoxNzkwNTc4ODEyLCJzY29wZSI6IndlYnNvY2tldCIsInNlcnZlcl91dWlkIjoiYWJkOTBjZGQtYjY1OC00MzdjLWEwMGMtN2E4OWYwOWY3ZTEwIiwicGVybWlzc2lvbnMiOlsiKiIsInZlcnNpb25zLm1hbmFnZSIsIndlYnNvY2tldC5jb25uZWN0IiwiY29udHJvbC5jb25zb2xlIiwiY29udHJvbC5zdG9wIiwiY29udHJvbC5yZXN0YXJ0IiwidXNlci5jcmVhdGUiLCJ1c2VyLnJlYWQiLCJ1c2VyLnVwZGF0ZSIsInVzZXIuZGVsZXRlIiwiZmlsZS5jcmVhdGUiLCJmaWxlLnJlYWQiLCJmaWxlLnJlYWQtY29udGVudCIsImZpbGUudXBkYXRlIiwiZmlsZS5kZWxldGUiLCJmaWxlLmFyY2hpdmUiLCJmaWxlLnNmdHAiLCJiYWNrdXAuY3JlYXRlIiwiYmFja3VwLnJlYWQiLCJiYWNrdXAuZGVsZXRlIiwiYmFja3VwLmRvd25sb2FkIiwiYmFja3VwLnJlc3RvcmUiLCJhbGxvY2F0aW9uLnJlYWQiLCJhbGxvY2F0aW9uLmNyZWF0ZSIsImFsbG9jYXRpb24udXBkYXRlIiwiYWxsb2NhdGlvbi5kZWxldGUiLCJzdGFydHVwLnJlYWQiLCJzdGFydHVwLnVwZGF0ZSIsInN0YXJ0dXAuZG9ja2VyLWltYWdlIiwiZGF0YWJhc2UuY3JlYXRlIiwiZGF0YWJhc2UucmVhZCIsImRhdGFiYXNlLnVwZGF0ZSIsImRhdGFiYXNlLmRlbGV0ZSIsImRhdGFiYXNlLnZpZXdfcGFzc3dvcmQiLCJzY2hlZHVsZS5jcmVhdGUiLCJzY2hlZHVsZS5yZWFkIiwic2NoZWR1bGUudXBkYXRlIiwic2NoZWR1bGUuZGVsZXRlIiwic2V0dGluZ3MucmVuYW1lIiwic2V0dGluZ3MucmVpbnN0YWxsIiwiYWN0aXZpdHkucmVhZCJdLCJ1c2VyX3V1aWQiOiIzOGRlMGY3ZS0yY2RlLTRlMDItYThjOS02OGUyNTEzNDYxZTEiLCJ1c2VyX2lkIjo0ODI1LCJ1bmlxdWVfaWQiOiJhRUJsTVdTeXU5VUpoUnlCIn0.riK8cuIrzNpHrQxNgEoaeI9jv9lAgBMU-UgaqnmVuqA",
+        "socket": "wss://node1.nvnmc.asia:443/api/servers/abd90cdd-b658-437c-a00c-7a89f09f7e10/ws"
+      }
+    }
+  },
+  "/servers/abd90cdd/files/list?directory=/": {
+    "status": 200,
+    "data": {
+      "object": "list",
+      "data": [
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": ".cache",
+            "mode": "drwxr-xr-x",
+            "mode_bits": "755",
+            "size": 4096,
+            "is_file": false,
+            "is_symlink": false,
+            "mimetype": "inode/directory",
+            "created_at": "2026-09-28T00:49:06+07:00",
+            "modified_at": "2026-09-27T23:01:14+07:00"
+          }
+        },
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": ".paper",
+            "mode": "drwxr-xr-x",
+            "mode_bits": "755",
+            "size": 4096,
+            "is_file": false,
+            "is_symlink": false,
+            "mimetype": "inode/directory",
+            "created_at": "2026-09-28T00:49:06+07:00",
+            "modified_at": "2026-09-27T23:50:14+07:00"
+          }
+        },
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": "cache",
+            "mode": "drwxr-xr-x",
+            "mode_bits": "755",
+            "size": 4096,
+            "is_file": false,
+            "is_symlink": false,
+            "mimetype": "inode/directory",
+            "created_at": "2026-09-28T00:49:06+07:00",
+            "modified_at": "2026-09-27T23:01:01+07:00"
+          }
+        },
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": "config",
+            "mode": "drwxr-xr-x",
+            "mode_bits": "755",
+            "size": 4096,
+            "is_file": false,
+            "is_symlink": false,
+            "mimetype": "inode/directory",
+            "created_at": "2026-09-28T11:51:39+07:00",
+            "modified_at": "2026-09-28T11:51:39+07:00"
+          }
+        },
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": "libraries",
+            "mode": "drwxr-xr-x",
+            "mode_bits": "755",
+            "size": 4096,
+            "is_file": false,
+            "is_symlink": false,
+            "mimetype": "inode/directory",
+            "created_at": "2026-09-28T00:49:06+07:00",
+            "modified_at": "2026-09-27T23:01:13+07:00"
+          }
+        },
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": "logs",
+            "mode": "drwxr-xr-x",
+            "mode_bits": "755",
+            "size": 4096,
+            "is_file": false,
+            "is_symlink": false,
+            "mimetype": "inode/directory",
+            "created_at": "2026-09-28T00:49:12+07:00",
+            "modified_at": "2026-09-28T00:49:12+07:00"
+          }
+        },
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": "plugins",
+            "mode": "drwxr-xr-x",
+            "mode_bits": "755",
+            "size": 4096,
+            "is_file": false,
+            "is_symlink": false,
+            "mimetype": "inode/directory",
+            "created_at": "2026-09-28T01:05:38+07:00",
+            "modified_at": "2026-09-28T01:05:38+07:00"
+          }
+        },
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": "versions",
+            "mode": "drwxr-xr-x",
+            "mode_bits": "755",
+            "size": 4096,
+            "is_file": false,
+            "is_symlink": false,
+            "mimetype": "inode/directory",
+            "created_at": "2026-09-28T00:49:06+07:00",
+            "modified_at": "2026-09-27T23:01:06+07:00"
+          }
+        },
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": "world",
+            "mode": "drwxr-xr-x",
+            "mode_bits": "755",
+            "size": 4096,
+            "is_file": false,
+            "is_symlink": false,
+            "mimetype": "inode/directory",
+            "created_at": "2026-09-28T13:45:59+07:00",
+            "modified_at": "2026-09-28T13:45:59+07:00"
+          }
+        },
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": "banned-ips.json",
+            "mode": "-rw-r--r--",
+            "mode_bits": "644",
+            "size": 2,
+            "is_file": true,
+            "is_symlink": false,
+            "mimetype": "application/json",
+            "created_at": "2026-09-28T00:49:25+07:00",
+            "modified_at": "2026-09-28T00:49:25+07:00"
+          }
+        },
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": "banned-players.json",
+            "mode": "-rw-r--r--",
+            "mode_bits": "644",
+            "size": 2,
+            "is_file": true,
+            "is_symlink": false,
+            "mimetype": "application/json",
+            "created_at": "2026-09-28T00:49:25+07:00",
+            "modified_at": "2026-09-28T00:49:25+07:00"
+          }
+        },
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": "bukkit.yml",
+            "mode": "-rw-r--r--",
+            "mode_bits": "644",
+            "size": 1148,
+            "is_file": true,
+            "is_symlink": false,
+            "mimetype": "text/plain; charset=utf-8",
+            "created_at": "2026-09-28T00:49:24+07:00",
+            "modified_at": "2026-09-28T00:49:24+07:00"
+          }
+        },
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": "commands.yml",
+            "mode": "-rw-r--r--",
+            "mode_bits": "644",
+            "size": 491,
+            "is_file": true,
+            "is_symlink": false,
+            "mimetype": "text/plain; charset=utf-8",
+            "created_at": "2026-09-28T00:49:24+07:00",
+            "modified_at": "2026-09-28T00:49:24+07:00"
+          }
+        },
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": "eula.txt",
+            "mode": "-rw-r--r--",
+            "mode_bits": "644",
+            "size": 10,
+            "is_file": true,
+            "is_symlink": false,
+            "mimetype": "text/plain; charset=utf-8",
+            "created_at": "2026-09-28T00:49:06+07:00",
+            "modified_at": "2026-09-27T23:49:36+07:00"
+          }
+        },
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": "ops.json",
+            "mode": "-rw-r--r--",
+            "mode_bits": "644",
+            "size": 968,
+            "is_file": true,
+            "is_symlink": false,
+            "mimetype": "application/json",
+            "created_at": "2026-09-28T00:49:25+07:00",
+            "modified_at": "2026-09-28T00:49:25+07:00"
+          }
+        },
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": "server.jar",
+            "mode": "-rw-r--r--",
+            "mode_bits": "644",
+            "size": 64522678,
+            "is_file": true,
+            "is_symlink": false,
+            "mimetype": "application/jar",
+            "created_at": "2026-09-28T00:49:06+07:00",
+            "modified_at": "2026-09-27T22:59:31+07:00"
+          }
+        },
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": "server.properties",
+            "mode": "-rw-r--r--",
+            "mode_bits": "644",
+            "size": 1972,
+            "is_file": true,
+            "is_symlink": false,
+            "mimetype": "text/plain; charset=utf-8",
+            "created_at": "2026-09-28T12:15:44+07:00",
+            "modified_at": "2026-09-28T12:15:44+07:00"
+          }
+        },
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": "spigot.yml",
+            "mode": "-rw-r--r--",
+            "mode_bits": "644",
+            "size": 4901,
+            "is_file": true,
+            "is_symlink": false,
+            "mimetype": "text/plain; charset=utf-8",
+            "created_at": "2026-09-28T00:49:38+07:00",
+            "modified_at": "2026-09-28T00:49:38+07:00"
+          }
+        },
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": "usercache.json",
+            "mode": "-rw-r--r--",
+            "mode_bits": "644",
+            "size": 1117,
+            "is_file": true,
+            "is_symlink": false,
+            "mimetype": "application/json",
+            "created_at": "2026-09-28T13:31:16+07:00",
+            "modified_at": "2026-09-28T13:31:16+07:00"
+          }
+        },
+        {
+          "object": "file_object",
+          "attributes": {
+            "name": "whitelist.json",
+            "mode": "-rw-r--r--",
+            "mode_bits": "644",
+            "size": 2,
+            "is_file": true,
+            "is_symlink": false,
+            "mimetype": "application/json",
+            "created_at": "2026-09-28T00:49:06+07:00",
+            "modified_at": "2026-09-27T23:50:14+07:00"
+          }
+        }
+      ]
+    }
+  },
+  "/servers/abd90cdd/files/upload": {
+    "status": 200,
+    "data": {
+      "object": "signed_url",
+      "attributes": {
+        "url": "https://node1.nvnmc.asia:443/upload/file?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6IjA0OThmOWMxZjU0ZTY2M2VlODRiOGNjMjNiZDY0MWNlIn0.eyJpc3MiOiJodHRwczovL3BhbmVsLm52bm1jLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vbm9kZTEubnZubWMuYXNpYTo0NDMiXSwianRpIjoiMDQ5OGY5YzFmNTRlNjYzZWU4NGI4Y2MyM2JkNjQxY2UiLCJpYXQiOjE3OTA1NzgyMTMsIm5iZiI6MTc5MDU3NzkxMywiZXhwIjoxNzkwNTc5MTEzLCJzZXJ2ZXJfdXVpZCI6ImFiZDkwY2RkLWI2NTgtNDM3Yy1hMDBjLTdhODlmMDlmN2UxMCIsInNjb3BlIjoiZmlsZS11cGxvYWQiLCJ1c2VyX3V1aWQiOiIzOGRlMGY3ZS0yY2RlLTRlMDItYThjOS02OGUyNTEzNDYxZTEiLCJ1c2VyX2lkIjo0ODI1LCJ1bmlxdWVfaWQiOiI5YWwyaEpWdWFsM3k2dERDIn0.LlSzYpVb3xSkfBuAf82mEsLoKSv7ue0-RFJnAmpADOE"
+      }
+    }
+  },
+  "/servers/abd90cdd/backups": {
+    "status": 200,
+    "data": {
+      "object": "list",
+      "data": [],
+      "meta": {
+        "backup_count": 0,
+        "pagination": {
+          "total": 0,
+          "count": 0,
+          "per_page": 20,
+          "current_page": 1,
+          "total_pages": 1,
+          "links": {}
+        }
+      }
+    }
+  },
+  "/servers/abd90cdd/schedules": {
+    "status": 200,
+    "data": {
+      "object": "list",
+      "data": []
+    }
+  },
+  "/servers/abd90cdd/network/allocations": {
+    "status": 200,
+    "data": {
+      "object": "list",
+      "data": [
+        {
+          "object": "allocation",
+          "attributes": {
+            "id": 2668,
+            "ip": "0.0.0.0",
+            "ip_alias": "nvnmc.asia",
+            "port": 25035,
+            "notes": null,
+            "is_default": true
+          }
+        }
+      ]
+    }
+  },
+  "/servers/abd90cdd/users": {
+    "status": 200,
+    "data": {
+      "object": "list",
+      "data": []
+    }
+  },
+  "/servers/abd90cdd/startup": {
+    "status": 200,
+    "data": {
+      "object": "list",
+      "data": [
+        {
+          "object": "egg_variable",
+          "attributes": {
+            "name": "Minecraft Version",
+            "description": "The version of minecraft to download.\r\n\r\nPinned to Paper 26.1.2 for the current Minecraft release. Set to latest if you want reinstalls to fetch the newest supported Paper version automatically.",
+            "env_variable": "MINECRAFT_VERSION",
+            "default_value": "26.1.2",
+            "server_value": "26.2",
+            "is_editable": true,
+            "rules": "nullable|string|max:20"
+          }
+        },
+        {
+          "object": "egg_variable",
+          "attributes": {
+            "name": "Server Jar File",
+            "description": "Ten file jar khoi chay may chu. Bat buoc ket thuc bang .jar va khong chua ky tu dac biet.",
+            "env_variable": "SERVER_JARFILE",
+            "default_value": "server.jar",
+            "server_value": "server.jar",
+            "is_editable": true,
+            "rules": "required|string|max:128|regex:/^[a-zA-Z0-9][a-zA-Z0-9._-]*\\.jar$/"
+          }
+        },
+        {
+          "object": "egg_variable",
+          "attributes": {
+            "name": "Build Number",
+            "description": "The build number for the paper release.\r\n\r\nLeave at latest to always get the latest stable build for the selected Paper version. Invalid versions will default to latest.",
+            "env_variable": "BUILD_NUMBER",
+            "default_value": "latest",
+            "server_value": "latest",
+            "is_editable": true,
+            "rules": "required|string|max:20"
+          }
+        },
+        {
+          "object": "egg_variable",
+          "attributes": {
+            "name": "Online Mode",
+            "description": "Controls whether the server verifies Minecraft accounts with Mojang/Microsoft. Use true for premium-only servers and false for offline/cracked servers.",
+            "env_variable": "ONLINE_MODE",
+            "default_value": "false",
+            "server_value": "false",
+            "is_editable": true,
+            "rules": "required|string|in:true,false"
+          }
+        },
+        {
+          "object": "egg_variable",
+          "attributes": {
+            "name": "Max Players",
+            "description": "The maximum number of players allowed to join the server.",
+            "env_variable": "MAX_PLAYERS",
+            "default_value": "20",
+            "server_value": "50",
+            "is_editable": true,
+            "rules": "required|integer|min:1|max:100000"
+          }
+        },
+        {
+          "object": "egg_variable",
+          "attributes": {
+            "name": "JVM Garbage Collector Flags",
+            "description": "[HUONG DAN CHON CO GC]:\n- Dong dai nhat chua MaxGCPauseMillis (Aikar): Tot nhat cho Paper, Purpur, Folia (Khuyen dung mac dinh).\n- -XX:+UseShenandoahGC: Tot nhat cho Fabric, Modpack nang va server PvP (Triet tieu giat lag khung hinh).\n- -XX:+UseZGC: Danh cho may chu RAM lon (Khuyen nghi >= 8GB, dong nguoi choi).\n- Chua UseStringDeduplication: Danh cho server mod giup tiet kiem 10-20% RAM Heap.\n- -XX:+UseG1GC tieu chuan: Mac dinh chuan cua Java, phu hop Vanilla / server nho.\n- De trong (Default): Khong them co, JVM tu dong dieu phoi.",
+            "env_variable": "GC_FLAGS",
+            "default_value": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true",
+            "server_value": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true",
+            "is_editable": true,
+            "rules": "nullable|string|in:-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true,-XX:+UseShenandoahGC,-XX:+UseZGC,-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:+UseStringDeduplication,-XX:+UseG1GC -XX:+ParallelRefProcEnabled"
+          }
+        }
+      ],
+      "meta": {
+        "startup_command": "java -Xms128M -XX:MaxRAM=7168M -XX:MaxRAMPercentage=80.0 -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -Duser.timezone=Asia/Ho_Chi_Minh -Dterminal.jline=false -Dterminal.ansi=true -jar server.jar nogui",
+        "docker_images": {
+          "Java 25": "ghcr.io/pterodactyl/yolks:java_25",
+          "Java 22": "ghcr.io/pterodactyl/yolks:java_22",
+          "Java 21": "ghcr.io/pterodactyl/yolks:java_21",
+          "Java 17": "ghcr.io/pterodactyl/yolks:java_17",
+          "Java 16": "ghcr.io/pterodactyl/yolks:java_16",
+          "Java 11": "ghcr.io/pterodactyl/yolks:java_11",
+          "Java 8": "ghcr.io/pterodactyl/yolks:java_8"
+        },
+        "raw_startup_command": "java -Xms128M -XX:MaxRAM={{SERVER_MEMORY}}M -XX:MaxRAMPercentage=80.0 {{GC_FLAGS}} -Duser.timezone=Asia/Ho_Chi_Minh -Dterminal.jline=false -Dterminal.ansi=true -jar {{SERVER_JARFILE}} nogui",
+        "sync_status": "synced"
+      }
+    }
+  },
+  "/servers/abd90cdd/databases": {
+    "status": 200,
+    "data": {
+      "object": "list",
+      "data": []
+    }
+  }
+}

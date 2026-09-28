@@ -1,0 +1,34 @@
+---
+title: "Server WebSocket"
+description: "Endpoint cấp quyền và thông tin kết nối WebSocket phục vụ truyền phát dữ liệu console thời gian thực."
+---
+
+## Lấy thông tin xác thực WebSocket
+
+```http
+GET https://panel.nvnmc.cloud/api/client/servers/{server_id}/websocket
+```
+
+### Phản hồi: 200 OK
+```json
+{
+  "data": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "socket": "wss://node1.nvnmc.asia:443/api/servers/abd90cdd-cf16-4357-9db9-fbe9d5c8e3bf/ws"
+  }
+}
+```
+
+### Giao thức giao tiếp WebSocket
+1. Thiết lập kết nối WSS tới URI trong trường `socket`.
+2. Gửi thông điệp xác thực ngay sau khi kết nối thành công:
+```json
+{
+  "event": "auth",
+  "args": ["eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."]
+}
+```
+3. Các sự kiện lắng nghe từ máy chủ:
+- `console output`: Luồng log thời gian thực từ STDOUT/STDERR.
+- `status`: Cập nhật trạng thái vòng đời của tiến trình.
+- `stats`: Thông số tài nguyên định kỳ theo định dạng JSON.

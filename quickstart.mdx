@@ -1,0 +1,104 @@
+---
+title: "Khởi Tạo & Tích Hợp Kỹ Thuật"
+description: "Quy trình thiết lập khóa ủy quyền, xác định mã tài nguyên và thực thi yêu cầu kiểm tra kết nối đầu tiên."
+---
+
+## 1. Quy trình cấp phát Client API Key
+
+Để tương tác với giao diện lập trình của hệ thống, ứng dụng bên ngoài bắt buộc phải sử dụng mã khóa ủy quyền được cấp phát từ hệ thống quản trị người dùng.
+
+### Các bước thực hiện:
+1. Đăng nhập vào giao diện điều hành tại `https://panel.nvnmc.cloud`.
+2. Truy cập phân vùng cấu hình tài khoản cá nhân tại đường dẫn `/account/api`.
+3. Nhập định danh ứng dụng vào trường **Description** (ví dụ: `Integration_Service_Production`).
+4. Tại trường **Allowed IPs**, cấu hình danh sách địa chỉ IP nguồn được phép gọi API (để trống nếu chấp nhận toàn bộ dải IP).
+5. Nhấn nút khởi tạo: Hệ thống sinh ra một chuỗi khóa bí mật duy nhất có định dạng:
+   ```text
+   ptlc_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+   ```
+<Warning>
+**Bảo mật:** Chuỗi khóa API chỉ được hiển thị một lần duy nhất tại thời điểm khởi tạo. Nếu thất lạc, khóa cũ phải được thu hồi và khởi tạo khóa mới để thay thế.
+</Warning>
+
+---
+
+## 2. Xác định mã định danh tài nguyên (Server Identifier)
+
+Trong toàn bộ các endpoint thuộc phân cấp máy chủ, tham số `{server_id}` là chuỗi định danh duy nhất gồm **8 ký tự hệ thập lục phân** (ví dụ: `abd90cdd`).
+
+Mã định danh có thể được trích xuất thông qua 2 phương thức:
+* **Qua giao diện Web:** Trích xuất từ thanh địa chỉ trình duyệt (`https://panel.nvnmc.cloud/server/abd90cdd`).
+* **Qua API:** Gọi endpoint danh sách máy chủ `GET /api/client` và trích xuất giá trị trường `attributes.identifier`.
+
+---
+
+## 3. Thực thi yêu cầu kiểm tra kết nối (Verification Request)
+
+Thực hiện truy vấn trạng thái tiêu thụ tài nguyên thực tế của máy chủ để xác minh tính hợp lệ của khóa xác thực và khả năng tiếp nhận yêu cầu từ hệ thống.
+
+### Ví dụ triển khai bằng cURL
+```bash
+curl -X GET "https://panel.nvnmc.cloud/api/client/servers/abd90cdd/resources"   -H "Authorization: Bearer ptlc_YOUR_API_KEY"   -H "Accept: application/json"   -H "User-Agent: NVNMC-Client/1.0"
+```
+
+### Ví dụ triển khai bằng Python (Standard Library)
+```python
+import urllib.request
+import json
+
+BASE_URL = "https://panel.nvnmc.cloud/api/client"
+API_KEY = "ptlc_YOUR_API_KEY"
+SERVER_ID = "abd90cdd"
+
+request_url = f"{BASE_URL}/servers/{SERVER_ID}/resources"
+headers = {
+    "Authorization": f"Bearer {API_KEY}",
+    "Accept": "application/json",
+    "User-Agent": "NVNMC-Client/1.0"
+}
+
+req = urllib.request.Request(request_url, headers=headers, method="GET")
+
+try:
+    with urllib.request.urlopen(req) as response:
+        status_code = response.status
+        payload = json.loads(response.read().decode("utf-8"))
+        print(f"HTTP Status: {status_code}")
+        print(f"Current State: {payload['attributes']['current_state']}")
+        print(f"Memory Usage: {payload['attributes']['resources']['memory_bytes']} bytes")
+except urllib.error.HTTPError as error:
+    print(f"HTTP Error {error.code}: {error.read().decode('utf-8')}")
+```
+
+### Ví dụ triển khai bằng Node.js (Fetch API)
+```javascript
+const API_KEY = "ptlc_YOUR_API_KEY";
+const SERVER_ID = "abd90cdd";
+const ENDPOINT = `https://panel.nvnmc.cloud/api/client/servers/${SERVER_ID}/resources`;
+
+async function verifyConnection() {
+  try {
+    const response = await fetch(ENDPOINT, {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${API_KEY}`,
+        "Accept": "application/json",
+        "User-Agent": "NVNMC-Client/1.0"
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log("Status:", response.status);
+    console.log("State:", data.attributes.current_state);
+    console.log("CPU:", data.attributes.resources.cpu_absolute, "%");
+  } catch (err) {
+    console.error("Connection failed:", err.message);
+  }
+}
+
+verifyConnection();
+```

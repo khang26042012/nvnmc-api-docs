@@ -1,0 +1,117 @@
+---
+title: "Tổng Quan Kiến Trúc & Danh Mục API"
+description: "Đặc tả kỹ thuật hệ thống RESTful HTTP API của NVNMC, quy chuẩn giao tiếp và danh mục toàn bộ các endpoint."
+---
+
+## 1. Giới thiệu hệ thống
+
+Hệ thống giao diện lập trình ứng dụng (Application Programming Interface - API) của NVNMC cung cấp phương thức điều khiển, giám sát và tự động hóa toàn bộ hạ tầng máy chủ game từ xa.
+
+API được thiết kế theo kiến trúc chuẩn RESTful (Representational State Transfer), sử dụng giao thức truyền tải bảo mật HTTPS (TLS 1.3), định dạng dữ liệu JSON cho cả yêu cầu và phản hồi, đồng thời áp dụng cơ chế xác thực ủy quyền Bearer Token.
+
+---
+
+## 2. Thông số kết nối cơ sở
+
+| Thuộc tính | Giá trị cấu hình | Ghi chú kỹ thuật |
+| :--- | :--- | :--- |
+| **Base URL** | `https://panel.nvnmc.cloud/api/client` | Điểm tiếp nhận duy nhất cho toàn bộ các yêu cầu REST API phạm vi người dùng (Client Scope). |
+| **Giao thức mạng** | HTTPS (TLS 1.3 / HTTP/2) | Bắt buộc mã hóa toàn bộ dữ liệu trên đường truyền. Các yêu cầu qua HTTP thuần sẽ bị từ chối. |
+| **Định dạng tải trọng** | `application/json` | Áp dụng cho cả Request Body và Response Body (ngoại lệ thao tác ghi tệp tin thô sử dụng `text/plain`). |
+| **Bảng mã ký tự** | UTF-8 | Toàn bộ chuỗi văn bản, tên tệp và tham số phải được mã hóa theo chuẩn UTF-8. |
+| **Giới hạn tần suất** | 240 requests / phút / IP | Hệ thống áp dụng thuật toán Token Bucket. Vượt quá ngưỡng sẽ nhận mã phản hồi `429 Too Many Requests`. |
+
+---
+
+## 3. Danh mục toàn bộ các Endpoint hệ thống (Complete Endpoints Matrix)
+
+Dưới đây là bảng tổng hợp toàn bộ các điểm cuối API được phân loại chi tiết theo từng nhóm tài nguyên chức năng:
+
+### 3.1. Nhóm Quản Lý Tài Khoản (Account Management)
+
+| Phương thức | Đường dẫn Endpoint | Mô tả chức năng |
+| :---: | :--- | :--- |
+| `GET` | `/account` | Truy xuất thông tin định danh, email và trạng thái bảo mật của tài khoản hiện tại. |
+| `GET` | `/account/activity` | Lấy nhật ký lịch sử các phiên đăng nhập, địa chỉ IP và hành động gần nhất. |
+| `GET` | `/account/api-keys` | Liệt kê danh sách toàn bộ các khóa Client API Key đã được cấp phát. |
+| `POST` | `/account/api-keys` | Khởi tạo một khóa Client API Key mới với mô tả và danh sách IP giới hạn. |
+| `DELETE` | `/account/api-keys/{id}` | Thu hồi và vô hiệu hóa vĩnh viễn một khóa API Key. |
+
+### 3.2. Nhóm Máy Chủ & Giám Sát Tài Nguyên (Servers & Realtime Metrics)
+
+| Phương thức | Đường dẫn Endpoint | Mô tả chức năng |
+| :---: | :--- | :--- |
+| `GET` | `/` (hoặc `/servers`) | Liệt kê danh sách toàn bộ máy chủ mà tài khoản sở hữu hoặc được cấp quyền truy cập. |
+| `GET` | `/servers/{server_id}` | Truy xuất cấu hình chi tiết, giới hạn phần cứng và thông số Node của máy chủ chỉ định. |
+| `GET` | `/servers/{server_id}/resources` | Truy xuất thông số tiêu thụ tài nguyên thực tế thời gian thực (CPU %, RAM byte, Disk byte, Network RX/TX, Uptime). |
+
+### 3.3. Nhóm Điều Khiển Vòng Đời & Console (Power Lifecycle & Console)
+
+| Phương thức | Đường dẫn Endpoint | Mô tả chức năng |
+| :---: | :--- | :--- |
+| `POST` | `/servers/{server_id}/power` | Gửi tín hiệu điều khiển trạng thái tiến trình (`start`, `stop`, `restart`, `kill`). |
+| `POST` | `/servers/{server_id}/command` | Gửi chuỗi lệnh điều khiển trực tiếp vào luồng Standard Input (STDIN) của tiến trình console. |
+| `GET` | `/servers/{server_id}/websocket` | Cấp phát token JWT và địa chỉ WSS để thiết lập kênh truyền phát log STDOUT thời gian thực. |
+
+### 3.4. Nhóm Quản Trị Hệ Thống Tệp Tin (File System)
+
+| Phương thức | Đường dẫn Endpoint | Mô tả chức năng |
+| :---: | :--- | :--- |
+| `GET` | `/servers/{server_id}/files/list` | Liệt kê danh sách tệp tin, thư mục, kích thước và phân quyền trong thư mục chỉ định. |
+| `GET` | `/servers/{server_id}/files/contents` | Đọc dữ liệu văn bản thô bên trong một tệp tin cấu hình. |
+| `POST` | `/servers/{server_id}/files/write` | Ghi đè hoặc tạo mới nội dung cho một tệp tin văn bản (Payload text/plain). |
+| `POST` | `/servers/{server_id}/files/delete` | Xóa một hoặc nhiều tệp tin / thư mục khỏi hệ thống lưu trữ máy chủ. |
+| `POST` | `/servers/{server_id}/files/rename` | Đổi tên hoặc di chuyển tệp tin sang đường dẫn mới. |
+| `POST` | `/servers/{server_id}/files/copy` | Sao chép nhân bản một tệp tin nội bộ. |
+| `POST` | `/servers/{server_id}/files/compress` | Nén một danh sách tệp tin/thư mục thành kho lưu trữ định dạng `.tar.gz`. |
+| `POST` | `/servers/{server_id}/files/decompress`| Giải nén một tệp lưu trữ `.tar.gz` hoặc `.zip` vào thư mục đích. |
+| `GET` | `/servers/{server_id}/files/upload` | Khởi tạo URL ký danh (Signed URL) để truyền tải trực tiếp tệp tin lên Daemon Wings. |
+
+### 3.5. Nhóm Sao Lưu Dữ Liệu (Backup Management)
+
+| Phương thức | Đường dẫn Endpoint | Mô tả chức năng |
+| :---: | :--- | :--- |
+| `GET` | `/servers/{server_id}/backups` | Liệt kê danh sách toàn bộ các bản sao lưu đã tạo kèm dung lượng và trạng thái. |
+| `POST` | `/servers/{server_id}/backups` | Kích hoạt tác vụ tạo bản sao lưu mới (hỗ trợ danh sách tệp tin bỏ qua `ignored`). |
+| `GET` | `/servers/{server_id}/backups/{uuid}` | Xem thông tin chi tiết, mã băm SHA256 và trạng thái hoàn tất của bản sao lưu. |
+| `GET` | `/servers/{server_id}/backups/{uuid}/download` | Lấy đường dẫn có chữ ký để tải tệp nén bản sao lưu về thiết bị lưu trữ ngoài. |
+| `POST` | `/servers/{server_id}/backups/{uuid}/restore` | Khôi phục toàn bộ dữ liệu máy chủ về trạng thái tại thời điểm tạo bản sao lưu. |
+| `DELETE` | `/servers/{server_id}/backups/{uuid}` | Xóa vĩnh viễn bản sao lưu khỏi hệ thống lưu trữ. |
+
+### 3.6. Nhóm Mạng, Cấu Hình & Tự Động Hóa (Network, Config & Automation)
+
+| Phương thức | Đường dẫn Endpoint | Mô tả chức năng |
+| :---: | :--- | :--- |
+| `GET` | `/servers/{server_id}/network/allocations` | Truy xuất danh sách toàn bộ địa chỉ IP và cổng mạng (Ports) gán cho máy chủ. |
+| `POST` | `/servers/{server_id}/network/allocations/{id}/primary` | Thiết lập một cổng mạng cụ thể làm cổng mặc định (Primary Allocation). |
+| `GET` | `/servers/{server_id}/startup` | Truy xuất danh sách các biến môi trường khởi động và cấu hình Docker Image. |
+| `PUT` | `/servers/{server_id}/startup/variable` | Cập nhật giá trị cho một biến môi trường khởi động cụ thể. |
+| `POST` | `/servers/{server_id}/settings/rename` | Thay đổi tên hiển thị và mô tả của máy chủ. |
+| `POST` | `/servers/{server_id}/settings/reinstall` | Kích hoạt quy trình cài đặt lại hệ điều hành/mã nguồn máy chủ từ mẫu gốc. |
+| `GET` | `/servers/{server_id}/users` | Liệt kê danh sách thành viên phụ (Sub-users) và danh mục quyền hạn được gán. |
+| `POST` | `/servers/{server_id}/users` | Thêm thành viên phụ mới và chỉ định danh sách quyền thao tác. |
+| `DELETE` | `/servers/{server_id}/users/{uuid}` | Gỡ bỏ quyền truy cập của một thành viên phụ khỏi máy chủ. |
+| `GET` | `/servers/{server_id}/databases` | Liệt kê danh sách các cơ sở dữ liệu quan hệ được cấp phát cho máy chủ. |
+| `POST` | `/servers/{server_id}/databases` | Khởi tạo một cơ sở dữ liệu mới trên cụm máy chủ cơ sở dữ liệu nội bộ. |
+| `POST` | `/servers/{server_id}/databases/{id}/rotate-password` | Tái tạo mật khẩu ngẫu nhiên mới cho cơ sở dữ liệu chỉ định. |
+| `DELETE` | `/servers/{server_id}/databases/{id}` | Xóa hoàn toàn cơ sở dữ liệu. |
+| `GET` | `/servers/{server_id}/schedules` | Liệt kê danh sách các lịch trình tác vụ tự động định kỳ (Cron Schedules). |
+| `POST` | `/servers/{server_id}/schedules` | Thiết lập một lịch trình tác vụ tự động mới. |
+| `POST` | `/servers/{server_id}/schedules/{id}/tasks` | Thêm tác vụ cụ thể (`command`, `power`, `backup`) vào một lịch trình. |
+
+---
+
+## 4. Bảng tra cứu mã trạng thái HTTP tiêu chuẩn
+
+| Mã HTTP | Tên chuẩn kỹ thuật | Ý nghĩa trong hệ thống NVNMC |
+| :---: | :--- | :--- |
+| **200** | OK | Yêu cầu xử lý thành công. Đối tượng dữ liệu được đóng gói trong phản hồi JSON. |
+| **201** | Created | Tài nguyên mới đã được khởi tạo thành công trên hệ thống (áp dụng cho Backup, Schedule, API Key). |
+| **204** | No Content | Yêu cầu thực thi hoàn tất nhưng không có nội dung phản hồi (Power signal, Command execution, Delete action). |
+| **400** | Bad Request | Cú pháp yêu cầu không hợp lệ hoặc dữ liệu JSON gửi lên bị sai định dạng. |
+| **401** | Unauthorized | Không cung cấp tiêu đề xác thực `Authorization` hoặc mã khóa API Key không tồn tại/đã bị thu hồi. |
+| **403** | Forbidden | Bị từ chối truy cập do thiếu quyền hạn (Permission denied) hoặc bị chặn bởi tường lửa Cloudflare WAF. |
+| **404** | Not Found | Đường dẫn endpoint không tồn tại hoặc mã định danh tài nguyên (Server ID, UUID, tệp tin) không tìm thấy. |
+| **422** | Unprocessable Entity | Dữ liệu đúng cú pháp nhưng vi phạm điều kiện nghiệp vụ (ví dụ: gửi tín hiệu `start` khi máy chủ đang chạy). |
+| **429** | Too Many Requests | Vượt quá định mức giới hạn tần suất yêu cầu (Rate limit: 240 requests/phút). |
+| **502** | Bad Gateway | Daemon Wings tại nút máy chủ vật lý đang ngoại tuyến, đang khởi động lại hoặc không phản hồi yêu cầu từ Panel. |

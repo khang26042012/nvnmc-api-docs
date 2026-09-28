@@ -1,0 +1,29 @@
+---
+title: "Server Settings"
+description: "Các endpoint quản trị tên hiển thị, mô tả và kích hoạt cài đặt lại máy chủ."
+---
+
+## Cập nhật tên và mô tả máy chủ
+
+```http
+POST https://panel.nvnmc.cloud/api/client/servers/{server_id}/settings/rename
+Content-Type: application/json
+
+{
+  "name": "KhangSMP2 Production",
+  "description": "High performance survival server"
+}
+```
+
+* **Phản hồi:** `204 No Content`.
+
+---
+
+## Kích hoạt cài đặt lại máy chủ (Reinstall)
+
+```http
+POST https://panel.nvnmc.cloud/api/client/servers/{server_id}/settings/reinstall
+```
+
+* **Phản hồi:** `204 No Content`.
+* **Cảnh báo kỹ thuật:** Thao tác này sẽ tải lại tệp tin thực thi lõi từ Egg cấu hình ban đầu. Toàn bộ tệp tin trùng tên sẽ bị ghi đè.

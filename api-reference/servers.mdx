@@ -1,0 +1,61 @@
+---
+title: "Servers"
+description: "Các endpoint truy xuất danh sách máy chủ và cấu hình chi tiết của từng máy chủ."
+---
+
+## Danh sách máy chủ sở hữu
+
+```http
+GET https://panel.nvnmc.cloud/api/client
+```
+
+### Phản hồi: 200 OK
+```json
+{
+  "object": "list",
+  "data": [
+    {
+      "object": "server",
+      "attributes": {
+        "server_owner": true,
+        "identifier": "abd90cdd",
+        "uuid": "abd90cdd-cf16-4357-9db9-fbe9d5c8e3bf",
+        "name": "KhangSMP2",
+        "node": "Node 1",
+        "sftp_details": {
+          "ip": "sftp.nvnmc.asia",
+          "port": 2022
+        },
+        "description": "Server Paper 1.21.4",
+        "limits": {
+          "memory": 6144,
+          "swap": 0,
+          "disk": 20480,
+          "io": 500,
+          "cpu": 300
+        },
+        "feature_limits": {
+          "databases": 2,
+          "allocations": 3,
+          "backups": 3
+        },
+        "is_suspended": false,
+        "is_installing": false
+      }
+    }
+  ]
+}
+```
+
+---
+
+## Chi tiết một máy chủ
+
+```http
+GET https://panel.nvnmc.cloud/api/client/servers/{server_id}
+```
+
+### Tham số đường dẫn (Path Parameters)
+| Tham số | Kiểu dữ liệu | Bắt buộc | Mô tả |
+| :--- | :--- | :---: | :--- |
+| **server_id** | string | Có | Mã định danh 8 ký tự của máy chủ (ví dụ: `abd90cdd`). |

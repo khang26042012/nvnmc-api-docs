@@ -1,0 +1,40 @@
+---
+title: "Server Allocations"
+description: "Các endpoint truy xuất và quản lý cổng mạng (port) cùng địa chỉ IP gán cho máy chủ."
+---
+
+## Danh sách cổng mạng được gán
+
+```http
+GET https://panel.nvnmc.cloud/api/client/servers/{server_id}/network/allocations
+```
+
+### Phản hồi: 200 OK
+```json
+{
+  "object": "list",
+  "data": [
+    {
+      "object": "server_allocation",
+      "attributes": {
+        "id": 1402,
+        "ip": "118.71.147.102",
+        "ip_alias": "nvnmc.asia",
+        "port": 25035,
+        "notes": "Main Game Port",
+        "is_default": true
+      }
+    }
+  ]
+}
+```
+
+---
+
+## Gán cổng mạng chính (Primary Allocation)
+
+```http
+POST https://panel.nvnmc.cloud/api/client/servers/{server_id}/network/allocations/{allocation_id}/primary
+```
+
+* **Phản hồi:** `200 OK` trả về đối tượng allocation vừa được thiết lập làm mặc định.

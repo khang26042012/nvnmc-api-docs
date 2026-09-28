@@ -1,0 +1,79 @@
+---
+title: "Server Backups"
+description: "Các endpoint quản trị bản sao lưu: liệt kê, tạo mới, tải về, khôi phục và xóa bản sao lưu."
+---
+
+## Danh sách các bản sao lưu
+
+```http
+GET https://panel.nvnmc.cloud/api/client/servers/{server_id}/backups
+```
+
+### Phản hồi: 200 OK
+```json
+{
+  "object": "list",
+  "data": [
+    {
+      "object": "backup",
+      "attributes": {
+        "uuid": "4fa8b21c-8902-4ec4-bf76-c56a7389104f",
+        "name": "Daily Backup 2026-03-29",
+        "ignored_files": ["logs", "cache"],
+        "sha256_hash": "a1b2c3d4...",
+        "bytes": 524288000,
+        "created_at": "2026-03-29T03:00:00Z",
+        "completed_at": "2026-03-29T03:02:15Z",
+        "is_successful": true,
+        "is_locked": false
+      }
+    }
+  ]
+}
+```
+
+---
+
+## Tạo bản sao lưu mới
+
+```http
+POST https://panel.nvnmc.cloud/api/client/servers/{server_id}/backups
+Content-Type: application/json
+
+{
+  "name": "Pre-Update Backup",
+  "ignored": "logs/*
+crash-reports/*",
+  "is_locked": false
+}
+```
+
+* **Phản hồi:** `200 OK` trả về đối tượng backup đang trong trạng thái xử lý.
+
+---
+
+## Lấy đường dẫn tải bản sao lưu
+
+```http
+GET https://panel.nvnmc.cloud/api/client/servers/{server_id}/backups/{backup_uuid}/download
+```
+
+### Phản hồi: 200 OK
+```json
+{
+  "object": "signed_url",
+  "attributes": {
+    "url": "https://node1.nvnmc.asia:443/download/backup?token=..."
+  }
+}
+```
+
+---
+
+## Xóa bản sao lưu
+
+```http
+DELETE https://panel.nvnmc.cloud/api/client/servers/{server_id}/backups/{backup_uuid}
+```
+
+* **Phản hồi:** `204 No Content`.

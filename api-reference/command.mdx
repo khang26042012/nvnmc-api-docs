@@ -1,0 +1,29 @@
+---
+title: "Server Commands"
+description: "Endpoint gửi lệnh điều khiển trực tiếp tới giao diện dòng lệnh console của máy chủ."
+---
+
+## Gửi lệnh Console
+
+```http
+POST https://panel.nvnmc.cloud/api/client/servers/{server_id}/command
+Content-Type: application/json
+
+{
+  "command": "say System maintenance in 5 minutes"
+}
+```
+
+### Tham số đường dẫn
+| Tham số | Kiểu | Bắt buộc | Mô tả |
+| :--- | :--- | :---: | :--- |
+| **server_id** | string | Có | Mã định danh máy chủ. |
+
+### Tham số thân yêu cầu (Body)
+| Thuộc tính | Kiểu | Bắt buộc | Mô tả |
+| :--- | :--- | :---: | :--- |
+| **command** | string | Có | Chuỗi lệnh cần thực thi. Không bao gồm ký tự gạch chéo (`/`) ở đầu. |
+
+### Mã phản hồi
+* **204 No Content:** Lệnh đã được ghi nhận vào luồng Standard Input (STDIN) của tiến trình container.
+* **502 Bad Gateway:** Máy chủ đang trong trạng thái Offline, không thể tiếp nhận lệnh.

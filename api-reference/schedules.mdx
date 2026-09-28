@@ -1,0 +1,48 @@
+---
+title: "Server Schedules"
+description: "Các endpoint quản lý tác vụ định kỳ tự động (cron schedules) và tác vụ con."
+---
+
+## Danh sách lịch trình tác vụ
+
+```http
+GET https://panel.nvnmc.cloud/api/client/servers/{server_id}/schedules
+```
+
+---
+
+## Tạo lịch trình mới
+
+```http
+POST https://panel.nvnmc.cloud/api/client/servers/{server_id}/schedules
+Content-Type: application/json
+
+{
+  "name": "Daily Restart",
+  "is_active": true,
+  "minute": "0",
+  "hour": "3",
+  "day_of_month": "*",
+  "month": "*",
+  "day_of_week": "*",
+  "only_when_online": true
+}
+```
+
+---
+
+## Tạo tác vụ trong lịch trình
+
+```http
+POST https://panel.nvnmc.cloud/api/client/servers/{server_id}/schedules/{schedule_id}/tasks
+Content-Type: application/json
+
+{
+  "action": "power",
+  "payload": "restart",
+  "time_offset": 0,
+  "continue_on_failure": false
+}
+```
+
+* **Phản hồi:** `201 Created` trả về đối tượng tác vụ vừa khởi tạo.

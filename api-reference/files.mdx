@@ -1,0 +1,97 @@
+---
+title: "Server Files"
+description: "Các endpoint thao tác hệ thống tệp tin: duyệt danh mục, đọc nội dung, ghi đè, đổi tên, xóa và tải lên."
+---
+
+## Danh sách tệp tin trong thư mục
+
+```http
+GET https://panel.nvnmc.cloud/api/client/servers/{server_id}/files/list?directory=/
+```
+
+### Tham số truy vấn (Query Parameters)
+| Tham số | Kiểu | Mặc định | Mô tả |
+| :--- | :--- | :---: | :--- |
+| **directory** | string | `/` | Đường dẫn thư mục cần liệt kê nội dung bên trong. |
+
+### Phản hồi: 200 OK
+```json
+{
+  "object": "list",
+  "data": [
+    {
+      "object": "file_object",
+      "attributes": {
+        "name": "server.properties",
+        "mode": "-rw-r--r--",
+        "size": 1284,
+        "is_file": true,
+        "is_symlink": false,
+        "mimetype": "text/plain",
+        "created_at": "2026-03-10T10:00:00Z",
+        "modified_at": "2026-03-29T14:00:00Z"
+      }
+    }
+  ]
+}
+```
+
+---
+
+## Đọc nội dung tệp tin văn bản
+
+```http
+GET https://panel.nvnmc.cloud/api/client/servers/{server_id}/files/contents?file=/server.properties
+```
+
+* **Phản hồi:** `200 OK` với dữ liệu thô (Raw text/plain).
+
+---
+
+## Ghi đè nội dung tệp tin
+
+```http
+POST https://panel.nvnmc.cloud/api/client/servers/{server_id}/files/write?file=/server.properties
+Content-Type: text/plain
+
+view-distance=6
+simulation-distance=4
+online-mode=false
+```
+
+* **Phản hồi:** `204 No Content`.
+
+---
+
+## Xóa tệp tin hoặc thư mục
+
+```http
+POST https://panel.nvnmc.cloud/api/client/servers/{server_id}/files/delete
+Content-Type: application/json
+
+{
+  "root": "/",
+  "files": [
+    "logs/latest.log",
+    "temp_cache"
+  ]
+}
+```
+
+---
+
+## Lấy URL tải lên tệp tin trực tiếp
+
+```http
+GET https://panel.nvnmc.cloud/api/client/servers/{server_id}/files/upload
+```
+
+### Phản hồi: 200 OK
+```json
+{
+  "object": "signed_url",
+  "attributes": {
+    "url": "https://node1.nvnmc.asia:443/upload/file?token=eyJhbGciOi..."
+  }
+}
+```

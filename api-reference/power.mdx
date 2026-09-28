@@ -1,0 +1,57 @@
+---
+title: "Server Power"
+description: "Đặc tả kỹ thuật endpoint điều khiển trạng thái vòng đời tiến trình máy chủ."
+---
+
+## Gửi tín hiệu điều khiển nguồn (Power Action)
+
+```http
+POST https://panel.nvnmc.cloud/api/client/servers/{server_id}/power
+Content-Type: application/json
+
+{
+  "signal": "stop"
+}
+```
+
+### Tham số đường dẫn (Path Parameters)
+| Tham số | Kiểu | Bắt buộc | Mô tả |
+| :--- | :--- | :---: | :--- |
+| **server_id** | string | Có | Mã định danh máy chủ. |
+
+### Tham số thân yêu cầu (Body Parameters)
+| Thuộc tính | Kiểu | Bắt buộc | Giá trị hợp lệ |
+| :--- | :--- | :---: | :--- |
+| **signal** | string | Có | `start`, `stop`, `restart`, `kill` |
+
+---
+
+## Phân tích kỹ thuật các tín hiệu nguồn (Signal Semantics)
+
+### 1. `start`
+* **Cơ chế:** Khởi tạo container Docker và tiến trình JVM từ trạng thái `offline`. Cấp phát tài nguyên bộ nhớ và gắn socket mạng.
+* **Thời gian xử lý:** Phụ thuộc vào kích thước bản đồ và số lượng module khởi động.
+
+### 2. `stop` (Graceful Termination)
+* **Cơ chế:** Gửi tín hiệu ngắt phần mềm tiêu chuẩn (`SIGTERM` / lệnh console `stop`). 
+* **Chu trình thực thi của tiến trình:**
+  1. Ngắt kết nối các client đang kết nối với mã thông báo đóng phiên.
+  2. Ghi đè toàn bộ bộ đệm dữ liệu người dùng trên RAM xuống đĩa cứng.
+  3. Kích hoạt thao tác đồng bộ bản đồ xuống ổ lưu trữ vật lý (`flush to disk`).
+  4. Hủy các socket mạng và giải phóng tiến trình an toàn.
+* **Đặc tính:** Bảo đảm toàn vẹn dữ liệu, không gây phân mảnh hoặc hỏng tệp tin hệ thống.
+
+### 3. `restart`
+* **Cơ chế:** Kích hoạt chu trình `stop` an toàn. Sau khi tiến trình cũ chấm dứt hoàn toàn, hệ thống tự động kích hoạt lại tín hiệu `start`.
+
+### 4. `kill` (Forced Abort)
+* **Cơ chế:** Gửi tín hiệu ngắt phần cứng `SIGKILL (Signal 9)` trực tiếp từ nhân Linux tới tiến trình.
+* **Hệ quả kỹ thuật:** 
+  - Tiến trình bị tiêu diệt ngay lập tức tại chu kỳ CPU hiện tại mà không trải qua bất kỳ quy trình dọn dẹp hay lưu trữ nào.
+  - Các khối dữ liệu đang trong bộ đệm I/O chưa kịp ghi xuống đĩa sẽ bị mất hoàn toàn.
+  - Có rủi ro gây hỏng cấu trúc tệp tin lưu trữ (region/chunk corruption).
+* **Phạm vi áp dụng:** Chỉ sử dụng khi tiến trình rơi vào trạng thái bế tắc (deadlock), treo không phản hồi quá thời gian timeout (Watchdog freeze).
+
+### Mã phản hồi
+* **204 No Content:** Tín hiệu đã được chuyển tiếp thành công tới Wings Daemon.
+* **422 Unprocessable Entity:** Trạng thái máy chủ hiện tại không chấp nhận tín hiệu (ví dụ: gửi `start` khi máy chủ đang ở trạng thái `starting`).

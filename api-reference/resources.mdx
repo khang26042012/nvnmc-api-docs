@@ -1,0 +1,46 @@
+---
+title: "Server Resources"
+description: "Endpoint truy xuất thông số tiêu thụ tài nguyên phần cứng thời gian thực của máy chủ."
+---
+
+## Lấy thông số tài nguyên thời gian thực
+
+```http
+GET https://panel.nvnmc.cloud/api/client/servers/{server_id}/resources
+```
+
+### Tham số đường dẫn
+| Tham số | Kiểu dữ liệu | Bắt buộc | Mô tả |
+| :--- | :--- | :---: | :--- |
+| **server_id** | string | Có | Mã định danh 8 ký tự của máy chủ. |
+
+### Phản hồi: 200 OK
+```json
+{
+  "object": "stats",
+  "attributes": {
+    "current_state": "running",
+    "is_suspended": false,
+    "resources": {
+      "memory_bytes": 3415363584,
+      "cpu_absolute": 5.815,
+      "disk_bytes": 4049492126,
+      "network_rx_bytes": 12894562,
+      "network_tx_bytes": 45892014,
+      "uptime": 46839803
+    }
+  }
+}
+```
+
+### Định nghĩa các trường phản hồi
+| Trường dữ liệu | Kiểu | Mô tả kỹ thuật |
+| :--- | :--- | :--- |
+| **current_state** | string | Trạng thái vòng đời của tiến trình: `running`, `starting`, `stopping`, `offline`. |
+| **is_suspended** | boolean | Trạng thái đình chỉ do vi phạm hoặc quá hạn thanh toán. |
+| **memory_bytes** | integer | Dung lượng bộ nhớ RAM thực tế đang chiếm dụng tính bằng byte. |
+| **cpu_absolute** | number | Tỷ lệ phần trăm luồng CPU đang sử dụng (`100% = 1 core`). |
+| **disk_bytes** | integer | Dung lượng bộ nhớ lưu trữ ổ đĩa đã tiêu thụ tính bằng byte. |
+| **network_rx_bytes** | integer | Tổng lưu lượng mạng nhận vào (Receive). |
+| **network_tx_bytes** | integer | Tổng lưu lượng mạng truyền ra (Transmit). |
+| **uptime** | integer | Tổng thời gian tiến trình hoạt động liên tục tính bằng mili-giây. |

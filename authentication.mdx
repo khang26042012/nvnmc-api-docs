@@ -1,0 +1,100 @@
+---
+title: "Chuẩn Mực Xác Thực & Tiêu Đề HTTP"
+description: "Đặc tả kỹ thuật cơ chế ủy quyền Bearer Token, tiêu đề bắt buộc vượt WAF và mô hình dữ liệu phản hồi chuẩn."
+---
+
+## 1. Cơ chế xác thực Bearer Token
+
+NVNMC áp dụng tiêu chuẩn bảo mật theo đặc tả RFC 6750 (OAuth 2.0 Bearer Token Usage). Khóa Client API Key đóng vai trò là một Bearer Token đại diện cho quyền hạn của tài khoản khởi tạo.
+
+Chuỗi khóa phải được truyền trong tiêu đề HTTP `Authorization` với tiền tố `Bearer` kèm một ký tự khoảng trắng:
+
+```http
+Authorization: Bearer ptlc_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+---
+
+## 2. Đặc tả các tiêu đề HTTP bắt buộc (Mandatory Headers)
+
+Mọi yêu cầu gửi đến hệ thống đều phải cung cấp đầy đủ các tiêu đề sau:
+
+| Tên tiêu đề | Kiểu giá trị | Giá trị quy chuẩn | Mục đích kỹ thuật |
+| :--- | :--- | :--- | :--- |
+| **`Authorization`** | String | `Bearer <API_KEY>` | Xác thực danh tính và phân quyền của chủ thể yêu cầu. |
+| **`Accept`** | String | `application/json` | Khai báo định dạng kiểu nội dung mà ứng dụng có thể xử lý khi nhận phản hồi. |
+| **`Content-Type`** | String | `application/json` | Bắt buộc đối với các yêu cầu mang tải trọng (`POST`, `PUT`, `PATCH`). Ngoại lệ endpoint ghi tệp tin thô sử dụng `text/plain`. |
+| **`User-Agent`** | String | `NVNMC-Client/1.0` | **Bắt buộc:** Chuỗi định danh khách thể gọi API. Phục vụ hệ thống tường lửa Cloudflare WAF Enterprise phân loại và ngăn chặn các trình quét tự động trái phép. |
+
+<Warning>
+**Lưu ý kỹ thuật về User-Agent:** Nếu tiêu đề `User-Agent` bị bỏ trống hoặc mang giá trị mặc định của một số thư viện cơ sở (ví dụ: `Python-urllib/3.x`), yêu cầu sẽ bị hệ thống Cloudflare WAF chặn ngay tại biên mạng với mã phản hồi `403 Forbidden`.
+</Warning>
+
+---
+
+## 3. Cấu trúc mô hình dữ liệu chuẩn (Data Schema Standard)
+
+Phản hồi từ hệ thống luôn tuân thủ cấu trúc đối tượng đóng gói (Envelope Pattern), phân biệt rõ giữa đối tượng đơn lẻ và tập hợp danh sách.
+
+### Cấu trúc đối tượng đơn lẻ (Single Resource Schema)
+```json
+{
+  "object": "server",
+  "attributes": {
+    "server_owner": true,
+    "identifier": "abd90cdd",
+    "uuid": "abd90cdd-cf16-4357-9db9-fbe9d5c8e3bf",
+    "name": "KhangSMP2",
+    "node": "Node 1",
+    "is_suspended": false,
+    "limits": {
+      "memory": 6144,
+      "swap": 0,
+      "disk": 20480,
+      "io": 500,
+      "cpu": 300
+    }
+  }
+}
+```
+
+### Cấu trúc danh sách tập hợp (Collection Resource Schema with Pagination)
+```json
+{
+  "object": "list",
+  "data": [
+    {
+      "object": "server",
+      "attributes": { ... }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "total": 1,
+      "count": 1,
+      "per_page": 25,
+      "current_page": 1,
+      "total_pages": 1,
+      "links": {
+        "next": null,
+        "previous": null
+      }
+    }
+  }
+}
+```
+
+### Cấu trúc thông báo lỗi kỹ thuật (Error Response Schema)
+Khi một yêu cầu thất bại (mã trạng thái 4xx hoặc 5xx), nội dung phản hồi sẽ được định dạng theo cấu trúc danh sách lỗi chi tiết:
+
+```json
+{
+  "errors": [
+    {
+      "code": "NotFoundHttpException",
+      "status": "404",
+      "detail": "The requested resource could not be found on this server."
+    }
+  ]
+}
+```
